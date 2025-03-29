@@ -1,0 +1,3 @@
+[submodule "introduction-to-clairnote/LilyPond-Clairnote"]
+	path = introduction-to-clairnote/LilyPond-Clairnote
+	url = git@github.com:PaulMorris/LilyPond-Clairnote.git
