@@ -6,6 +6,14 @@
 *.pdf
 *.toc
 *.dep
+
+# Omake
+.omakedb
+.omakedb.lock
+*.omc
+
+.pdf-view-restore
+
 tmp-ly/
 
 /*/lock
