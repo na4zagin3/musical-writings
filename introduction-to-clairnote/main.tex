@@ -13,6 +13,7 @@
 \usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing, decorations.shapes}
 %\usepackage{pgfplots}
 \usepackage{latexsym}
+\usepackage{amssymb}
 \usepackage{lilyglyphs}
 \newcommand{\bra}[1]{\left\langle#1\right|}
 \newcommand{\ket}[1]{\left|#1\right\rangle}
@@ -186,6 +187,9 @@
 }
 \makeatother
 
+
+本節では著者考案の円形和音表記法について記す。
+
 \begin{tikzpicture}
     \pgfkeyssetvalue{/chord circle/radius}{3cm}
     \drawCircle{}
@@ -251,14 +255,48 @@
 \item[音程] 円周の内に描かれる。音標の間の音程を示す。
 \end{description}
 
+音標には以下の種類が用いられる。
+
+\begin{description}
+\item[$|$] 音高を示す。
+\item[$\circ$] 同上。
+\item[$\bullet$] 同上。
+\item[$\triangledown$] この音高の音が根音となることをを示す。
+\item[$\blacktriangledown$] 同上。
+\item[$\times$] この音高の音が現在のコードやスケールで用いられないことを示す。
+\end{description}
+
+音標には以下の補助記号も用いられる。
+
+\begin{description}
+\item[$-$] スラッシュコードの低音部を示す。例えば、F/Gを表す場合、Gの音標に$-$
+  が付与される。
+\item[(未定)] 根音から$n$オクターブ上・下であることを示す。
+\end{description}
+
+音標と補助記号は円周の中心を向くように回転する。
+
 浮標には音名等を示す。以下の記号も用いられる。
 
 \begin{description}
-\item[$\rhd$] この音高の音が次のコードやスケールにおいて根音となることをを示す。
+\item[$\triangleright$] この音高の音が次のコードやスケールにおいて根音となることをを示す。
+\item[$\blacktriangleright$] 同上。
 \item[\lilyGlyph{pedal.*}] この音高の音が次のコードやスケールには存在しないこと
   を示す。臨時記号を右に書き、次のコードやスケールに存在する同じピッチクラスの音
   の現在の音高からの相対的高低を示すことができる。
 \end{description}
+
+音程は中心からの角度や矢印等で表わされる。矢印の鏃は誤解の無い場合省略してもよい。
+色も好きな色を用いてもよい。
+\begin{description}
+\item[黒実線矢印] 3倍
+\item[赤破線矢印] 5倍
+\item[青波線矢印] 7倍
+\item[黒実線矢印、中程に丸] 11倍
+\item[黒実線矢印、中程に丸の中に数$n$] $n$倍
+\end{description}
+
+連続する同種の矢印は鏃の数を増やすことで表してもよい。
 
 \begin{tikzpicture}
     \pgfkeyssetvalue{/chord circle/radius}{3cm}
@@ -353,7 +391,7 @@
     % Define the logarithm values and plot points
 
     \drawNote[omitted]{0}{(C)}
-    \drawNote{0+1*\jiV}{E}
+    \drawNote[indicator,label]{0+1*\jiV}{E}
     \drawNote{0+1*\jiIII}{G}
     \drawNote{0+1*\jiVII}{B\flat}
 
